@@ -1,114 +1,82 @@
 # Warehouse Inventory App
 
-A mobile inventory management application built for Android that enables small warehouse teams to track stock levels quickly and efficiently without requiring an internet connection.
-
 ## Overview
 
-Warehouse Inventory App was designed as an offline-first inventory solution for small operations that need reliable stock tracking without the complexity of enterprise warehouse management systems. The application allows users to manage inventory items, monitor stock levels through visual indicators, and maintain persistent data storage directly on the device.
+The Warehouse Inventory App is an Android application I developed to help small warehouse teams keep track of inventory in a simple and efficient way. The goal of the project was to create a reliable stock tracking system that works entirely offline while providing a clean and intuitive user experience.
 
-The primary goal was to create a fast and intuitive workflow that minimizes the number of steps required to perform common inventory tasks while ensuring data remains available even when network connectivity is unavailable.
+Users can register an account, log in, add inventory items, edit existing items, and delete items when they are no longer needed. Inventory data is stored locally using SQLite, allowing the application to function without an internet connection while maintaining data persistence across sessions.
 
-## Key Features
+## Features
 
-* Secure user registration and login system
-* Inventory dashboard with responsive two-column grid layout
+* User registration and login
 * Add, edit, and delete inventory items
-* Color-coded stock status indicators for quick inventory assessment
+* Offline data storage using SQLite
+* Color-coded inventory status indicators
 
-  * Green: Healthy stock levels
-  * Yellow: Low inventory warning
-  * Red: Critical inventory levels
-* Local SQLite database for persistent offline storage
-* Optional SMS notifications for critical low-stock alerts
-* Material Design user interface optimized for mobile devices
-* Data persistence across application restarts
+  * Green = Healthy stock levels
+  * Yellow = Low stock
+  * Red = Critical stock
+* Responsive inventory dashboard
+* Optional SMS notifications for low inventory alerts
+* Persistent data storage across app restarts
 
-## Technical Stack
+## Technologies Used
 
-### Frontend
-
-* Android SDK
 * Java
+* Android Studio
+* Android SDK
+* SQLite
 * XML Layouts
 * Material Design Components
 
-### Data Storage
+## Project Motivation
 
-* SQLite Database
-* Local persistent storage architecture
+I built this application to solve a common problem found in smaller warehouse environments. Many inventory systems are designed for larger organizations and can be overly complex for teams that only need basic stock tracking. I wanted to create something that allowed users to quickly update inventory levels, view stock status at a glance, and continue working even without network access.
 
-### Device Integration
+The project also gave me the opportunity to gain hands-on experience with Android development, local database management, user authentication, and mobile UI design.
 
-* Android SMS Permission API
-* Runtime permission handling
+## Design Approach
 
-## Architecture
+I approached this project by focusing on the user's workflow first. Before writing code, I outlined the key tasks users would perform most often and designed the application around those actions.
 
-The application follows a local-first design philosophy where all inventory data is stored directly on the device using SQLite. This approach provides:
+The dashboard serves as the central hub of the application, displaying inventory items in a two-column grid with visual stock indicators. Common actions such as adding, editing, and deleting items are intentionally easy to access so users can complete routine inventory updates with minimal navigation.
 
-* Fast data access with no network latency
-* Full offline functionality
-* Reduced infrastructure costs
-* Improved reliability in environments with limited connectivity
+Throughout development, I built features in small increments and tested them frequently to ensure each part of the application worked correctly before moving on to the next feature.
 
-Inventory records are automatically synchronized with the local database whenever users create, update, or delete items, ensuring data consistency across sessions.
+## Technical Highlights
 
-## Development Process
+One of the most important parts of this project was implementing SQLite persistence. Every inventory action updates the local database, allowing users to close and reopen the application without losing data.
 
-This project was developed using an iterative, user-focused approach. The workflow began with identifying core warehouse inventory challenges and designing a streamlined user experience before implementation.
-
-Development was completed in small, functional increments, allowing each feature to be tested end-to-end before moving to the next stage. This approach improved reliability, simplified debugging, and ensured that the application remained aligned with user needs throughout development.
+Another challenge was implementing SMS notifications while maintaining an offline-first design. I chose to make SMS alerts completely optional. Users are only prompted for SMS permission if they choose to enable low-stock notifications, ensuring the core functionality of the application does not depend on sensitive permissions.
 
 ## Testing
 
-The application was tested across the complete inventory management workflow:
+To validate the application, I tested the complete inventory management workflow, including:
 
-* User registration and authentication
-* Inventory item creation
-* Inventory item updates
-* Inventory item deletion
-* Data persistence after application restart
-* Stock indicator accuracy
-* User interface responsiveness
-* SMS permission acceptance and denial scenarios
+* User registration and login
+* Adding inventory items
+* Editing inventory quantities
+* Deleting inventory records
+* Data persistence after restarting the application
+* Inventory status color thresholds
+* SMS permission approval and denial scenarios
 
-Special attention was given to validating offline functionality and ensuring the application remained fully operational when SMS permissions were not granted.
+This testing helped ensure that both the inventory management features and the user experience worked as intended.
 
-## Challenges & Solutions
+## Future Improvements
 
-### Offline-First Design
+There are several enhancements I would like to implement in future versions of the application:
 
-One of the primary challenges was balancing a fully offline inventory system with optional SMS-based notifications. To address this, SMS functionality was implemented as a completely independent feature that users can enable if desired.
-
-This design ensures that inventory management remains functional regardless of permission status while still providing enhanced notification capabilities for users who need them.
-
-### User Experience Optimization
-
-The dashboard layout was refined to prioritize speed and clarity. Inventory status indicators, floating action buttons, and consistent navigation patterns were incorporated to reduce friction during daily inventory management tasks.
-
-## Future Enhancements
-
-Planned improvements include:
-
-* Password hashing and enhanced authentication security
-* Inventory search and filtering
-* Sorting capabilities
-* CSV import and export functionality
-* Multi-user support
+* Password hashing and stronger authentication security
+* Search and filtering functionality
+* Inventory sorting options
+* CSV import and export support
 * Cloud synchronization
-* Analytics and reporting dashboard
-* Role-based access control
+* Multi-user inventory management
+* Reporting and analytics features
 
-## What This Project Demonstrates
+## What I Learned
 
-This project showcases my ability to:
+This project strengthened my understanding of Android application development, SQLite database integration, user interface design, and mobile application testing. It also reinforced the importance of designing software around the user's workflow and building features incrementally to improve reliability and maintainability.
 
-* Design and develop Android applications from concept to deployment
-* Implement local database solutions using SQLite
-* Build intuitive mobile user interfaces
-* Handle Android runtime permissions securely
-* Create offline-first applications
-* Test and validate complete user workflows
-* Balance technical requirements with user experience considerations
-
-The combination of persistent local storage, responsive UI design, and optional device integration demonstrates practical mobile development skills applicable to real-world business applications.
+Overall, this project demonstrates my ability to design, develop, test, and refine a complete mobile application from concept to implementation.
